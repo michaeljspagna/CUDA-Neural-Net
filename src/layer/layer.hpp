@@ -2,18 +2,18 @@
 #define LAYER_HPP
 
     #include <string>
-    #include "tensor.hpp"
+    #include "../util/tensor.hpp"
     /**
      * Base class for all layer classes
      */
-    struct ActivationLayer
+    struct Layer
     {
         protected:
             std::string title;
         
         public:
-            virtual auto forward_propagate(Tensor& A) -> Tensor& = 0;
-            virtual auto backward_propagate(Tensor& dZ, float alpha) -> Tensor& = 0;
+            virtual auto foward_propagate(Tensor& A) -> Tensor& = 0;
+            virtual auto back_propagate(Tensor& Z_error, float learning_rate) -> Tensor& = 0;
 
             auto getTitle() -> std::string 
             {
