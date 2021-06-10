@@ -1,13 +1,13 @@
-#ifndef COST_HPP
-#define COST_HPP
+#ifndef LOSS_HPP
+#define LOSS_HPP
 
     #include "../util/tensor.hpp"
 
-    struct Cost
+    struct Loss
     {
         public:
-            virtual auto cost(Tensor predictions, Tensor target) -> float = 0;
+            virtual auto loss(Tensor predictions, Tensor target) -> float = 0;
             virtual auto compute_gradient(Tensor predictions, Tensor target, Tensor gradient) -> Tensor = 0;
     };
 
-#endif /* COST_HPP */
+#endif /* LOSS_HPP */

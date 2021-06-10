@@ -46,9 +46,9 @@ auto Tensor::allocate_device_memory() -> void
         float* device_memory = nullptr;
         cudaMalloc(&device_memory
                  ,dimension.x * dimension.y * sizeof(float));
-        device_data = std::shared_ptr<float> (device_memory
+        device_data = std::shared_ptr<float> (d_board
                                              ,[&](float* ptr){ cudaFree(ptr); });
-        allocated_on_device = true;
+        d_allocated = true;
     }
 }
 
